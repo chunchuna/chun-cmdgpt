@@ -120,10 +120,10 @@ def modify_model_version():
 
 if __name__ == "__main__":
     if not check_api_key():
-     print("你输入的API密钥无效。如果这是你第一次启动，请打开目录下的[pe.py]文件，并在其中正确配置API相关参数。")
-     print("如果你有任何问题，请查看[https://github.com/chunchuna/ChunGpt/tree/1.0.1]获取相关帮助设置，或联系纯纯。")
+         print("你输入的API密钥无效。如果这是你第一次启动，请打开目录下的[pe.py]文件，并在其中正确配置API相关参数。")
+         print("如果你有任何问题，请查看[https://github.com/chunchuna/ChunGpt/tree/1.0.1]获取相关帮助设置，或联系纯纯。")
 
-    sys.exit(1)
+        sys.exit(1)
 
 
     in_main = False  # 标记是否在主界面
