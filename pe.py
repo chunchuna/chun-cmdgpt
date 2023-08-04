@@ -1,16 +1,26 @@
 import os
 import sys
-import requests
-import json
-import time
-import importlib
 import subprocess
+import importlib
 from colorama import init, Fore, Back, Style
 
 init()  # 初始化 colorama 库
 
+REQUIRED_LIBRARIES = ['requests', 'colorama']
+
+for library in REQUIRED_LIBRARIES:
+    try:
+        importlib.import_module(library)
+    except ImportError:
+        print(f"Installing {library} library...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", library])
+
+import requests
+import json
+import time
+
 API_BASE = 'https://api.closeai-asia.com/v1/chat/completions'
-API_KEY = 'sk-kn8rVHdC8NlpjrWT8gfsQawK2USx8JWMIex1Midz1GK57Ib22'
+API_KEY = 'sk-kn8rVHdC8NlpjrWT8gfsQawK2USx8JWMIex1Midz1GK57Ib2'
 
 conversation_history = [
     {"role": "system", "content": "You are a helpful assistant."},
