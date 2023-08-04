@@ -1,12 +1,12 @@
 # ChunGpt Assistant
 
-ChunGpt Assistant 是一个基于 OpenAI GPT-3.5 Turbo 模型构建的聊天助手应用程序。它利用 GPT-3.5 Turbo 模型的强大能力，为用户提供智能的对话交互体验。
+ChunGpt Assistant 是一个基于 OpenAI GPT 模型构建的聊天助手应用程序。它利用 GPT 模型的强大能力，为用户提供智能的对话交互体验。
 
 ## 功能和特点
 
-- **使用 OpenAI GPT-3.5 Turbo 模型进行对话生成**：我们利用最新的 GPT-3.5 Turbo 模型，以提供高质量的对话生成。
+- **使用 OpenAI GPT模型进行对话生成**：我们利用最新的 GPT 模型，以提供高质量的对话生成。
 
-- **通过 API 请求与 GPT-3.5 Turbo 模型进行通信**：程序通过 OpenAI API，与 GPT-3.5 Turbo 模型进行实时交互。
+- **通过 API 请求与 GPT 模型进行通信**：程序通过 OpenAI API，与 GPT 模型进行实时交互。
 
 - **支持修改 API 设置**：我们提供了修改 API_BASE 和 API_KEY 的功能，使用户可以根据需要调整 API 设置。
 
