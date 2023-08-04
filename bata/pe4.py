@@ -3,9 +3,6 @@ import sys
 import subprocess
 import importlib
 from colorama import init, Fore, Back, Style
-import time
-from datetime import datetime
-from pe_store import save_chat_record, read_chat_record
 
 init()  # 初始化 colorama 库
 
@@ -20,6 +17,7 @@ for library in REQUIRED_LIBRARIES:
 
 import requests
 import json
+import time
 
 API_BASE = 'https://api.closeai-asia.com/v1/chat/completions'
 API_KEY = 'sk-kn8rVHdC8NlpjrWT8gfsQawK2USx8JWMIex1Midz1GK57Ib2'
@@ -29,7 +27,7 @@ conversation_history = [
 ]
 
 # 是否启用背景
-enable_background = True
+enable_background = False
 
 def chat_with_gpt(input_text):
     global conversation_history
@@ -58,9 +56,7 @@ def show_menu():
     print("3. View AI output settings")
     print("4. Toggle background")
     print("5. Modify model version")
-    print("6. Save chat record")
-    print("7. Read chat record")
-    print("8. Quit")
+    print("6. Quit")
 
 
 def view_api_settings():
@@ -120,11 +116,6 @@ if __name__ == "__main__":
             elif input_text == "5":
                 modify_model_version()
             elif input_text == "6":
-                save_chat_record(conversation_history)
-                print("Chat record saved successfully.")
-            elif input_text == "7":
-                read_chat_record()
-            elif input_text == "8":
                 in_main = False
             else:
                 print("Invalid choice. Please try again.")
