@@ -58,12 +58,10 @@ def view_api_settings():
 def modify_api_settings():
     global API_BASE, API_KEY
     print("=== Modify API Settings ===")
-    new_api_base = input(f"Enter new API_BASE (current: {API_BASE}): ")
-    new_api_key = input(f"Enter new API_KEY (current: {API_KEY}): ")
-    if new_api_base.strip() != "":
-        API_BASE = new_api_base
-    if new_api_key.strip() != "":
-        API_KEY = new_api_key
+    new_api_base = input("Enter new API_BASE: ")
+    new_api_key = input("Enter new API_KEY: ")
+    API_BASE = new_api_base
+    API_KEY = new_api_key
     print("API settings modified successfully.")
 
 
@@ -110,8 +108,6 @@ if __name__ == "__main__":
             else:
                 print("Invalid choice. Please try again.")
         else:
-            if input_text.strip() == "":
-                continue
             response_text = chat_with_gpt(input_text)
             response_text = "/cd t " + response_text
             for char in response_text:

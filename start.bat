@@ -13,7 +13,7 @@ timeout /t 1 /nobreak >nul
 echo  ####  #    #  ####  #    # 
 echo.
 
-set /p UserInput=chunchunGpt测试版
+set /p UserInput=cmd-chungpt
 
 python pe.py %UserInput%
 pause
