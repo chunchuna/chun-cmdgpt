@@ -29,27 +29,17 @@ init()  # 初始化 colorama 库
 API_BASE = 'https://api.closeai-asia.com/v1/chat/completions'
 API_KEY = 'sk-kn8rVHdC8NlpjrWT8gfsQawK2USx8JWMIex1Midz1GK57Ib22'
 
-if API_KEY == '' or API_BASE == '':
-    print("API key 或者 API base 为空 \n")
-    sys.exit(1)
-
-# Check if API is available
-def check_api_availability():
+def check_api_key():
     headers = {
         'Authorization': f'Bearer {API_KEY}',
         'Content-Type': 'application/json',
     }
-    response = requests.get(API_BASE, headers=headers)
-    if response.status_code == 200:
-        return True
-    else:
-        return False
-
-# Check API availability
-if not check_api_availability():
-    print("API key 或者 API base 是无效的,如果你是第一次启动,请打开目录下的的[pe.py] 进行相关参数的配置")
-    print("如果还有疑问 可以在  https://github.com/chunchuna/ChunGpt/tree/1.0. 查看相关帮助信息 or 联系纯纯")
-    sys.exit(1)
+    data = {
+        "model": "gpt-3.5-turbo",
+        "messages": [{"role": "system", "content": "You are a helpful assistant."}]
+    }
+    response = requests.post(API_BASE, headers=headers, data=json.dumps(data))
+    return response.status_code == 200
 
 
 conversation_history = [
@@ -77,6 +67,7 @@ def chat_with_gpt(input_text):
     conversation_history.append({"role": "assistant", "content": assistant_response})
 
     return assistant_response
+
 
 
 def show_menu():
@@ -128,6 +119,13 @@ def modify_model_version():
 
 
 if __name__ == "__main__":
+    if not check_api_key():
+     print("你输入的API密钥无效。如果这是你第一次启动，请打开目录下的[pe.py]文件，并在其中正确配置API相关参数。")
+     print("如果你有任何问题，请查看[https://github.com/chunchuna/ChunGpt/tree/1.0.1]获取相关帮助设置，或联系纯纯。")
+
+    sys.exit(1)
+
+
     in_main = False  # 标记是否在主界面
     while True:
         input_text = input("/cd ")
