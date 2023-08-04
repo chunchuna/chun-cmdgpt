@@ -22,7 +22,7 @@ import requests
 import json
 
 API_BASE = 'https://api.closeai-asia.com/v1/chat/completions'
-API_KEY = 'sk-kn8rVHdC8NlpjrWT8gfsQawK2USx8JWMIex1Midz1GK57Ib2'
+API_KEY = 'sk-kn8rVHdC8NlpjrWT8gfsQawK2USx8JWMIex1Midz1GK57Ib22'
 
 conversation_history = [
     {"role": "system", "content": "You are a helpful assistant."},
