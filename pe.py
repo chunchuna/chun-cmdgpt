@@ -2,12 +2,12 @@ import os
 import sys
 import subprocess
 import importlib
-from colorama import init, Fore, Back, Style
+
 import time
 from datetime import datetime
 from pe_store import save_chat_record, read_chat_record
 
-init()  # 初始化 colorama 库
+
 
 REQUIRED_LIBRARIES = ['requests', 'colorama']
 
@@ -16,13 +16,41 @@ for library in REQUIRED_LIBRARIES:
         importlib.import_module(library)
     except ImportError:
         print(f"Installing {library} library...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", library])
+        result = subprocess.run([sys.executable, "-m", "pip", "install", library])
+        if result.returncode != 0:
+            print(f"安装库 {library}失败.")
+            sys.exit(1)
 
 import requests
 import json
+from colorama import init, Fore, Back, Style
+init()  # 初始化 colorama 库
 
 API_BASE = 'https://api.closeai-asia.com/v1/chat/completions'
 API_KEY = 'sk-kn8rVHdC8NlpjrWT8gfsQawK2USx8JWMIex1Midz1GK57Ib22'
+
+if API_KEY == '' or API_BASE == '':
+    print("API key 或者 API base 为空 \n")
+    sys.exit(1)
+
+# Check if API is available
+def check_api_availability():
+    headers = {
+        'Authorization': f'Bearer {API_KEY}',
+        'Content-Type': 'application/json',
+    }
+    response = requests.get(API_BASE, headers=headers)
+    if response.status_code == 200:
+        return True
+    else:
+        return False
+
+# Check API availability
+if not check_api_availability():
+    print("API key 或者 API base 是无效的,如果你是第一次启动,请打开目录下的的[pe.py] 进行相关参数的配置")
+    print("如果还有疑问 可以在  https://github.com/chunchuna/ChunGpt/tree/1.0. 查看相关帮助信息 or 联系纯纯")
+    sys.exit(1)
+
 
 conversation_history = [
     {"role": "system", "content": "You are a helpful assistant."},
