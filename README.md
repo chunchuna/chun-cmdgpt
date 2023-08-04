@@ -1,4 +1,4 @@
-# Chat Assistant
+# ChunGpt Assistant
 
 Chat Assistant 是一个使用 OpenAI GPT-3.5 Turbo 模型构建的聊天助手应用程序。它利用 GPT-3.5 Turbo 模型的强大能力，为用户提供智能的对话交互体验。
 
@@ -14,7 +14,7 @@ Chat Assistant 是一个使用 OpenAI GPT-3.5 Turbo 模型构建的聊天助手�
 ## 使用方法
 
 1. 确保已安装所需的 Python 环境和依赖项。
-2. 运行 `python chat_assistant.py` 命令启动 Chat Assistant。
+[2. 运行 `start.bat` 启动 chun-gpt Assistant。]
 3. 在主界面中，输入相应的菜单选项来执行相应的操作。
 4. 在对话交互界面中，输入消息并按回车键发送，Chat Assistant 将会生成智能的回复。
 
